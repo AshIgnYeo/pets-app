@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="col-6 mx-auto">
+    
+    <%= simple_form_for [@user, @pet] do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :name %>
+            <%= f.input :type %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Add Pet", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+    
+  </div>
+</div>
