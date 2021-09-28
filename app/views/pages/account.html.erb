@@ -9,26 +9,23 @@
     </div>
 
     <div class="row row-cols-3 p-4">
+      
+      <% @pets.each do |pet| %>
       <div class="col d-flex align-items-center justify-content-center mb-4">
         <div class="mx-2 bg-light w-100 border rounded p-2">
-          pet details
+          <h3><%= pet.name %></h3>
+          <img src="<%= pet.image %>" alt="" class="rounded w-100" style="height: 200px; object-fit: cover">
+          <div>
+            <p>
+              <strong>Type: </strong><%= pet.pet_type %>
+              <br />
+              <strong>Breed: </strong><%= pet.breed %>
+            </p>
+          </div>
         </div>
       </div>
-      <div class="col d-flex align-items-center justify-content-center mb-4">
-        <div class="mx-2 bg-light w-100 border rounded p-2">
-          pet details
-        </div>
-      </div>
-      <div class="col d-flex align-items-center justify-content-center mb-4">
-        <div class="mx-2 bg-light w-100 border rounded p-2">
-          pet details
-        </div>
-      </div>
-      <div class="col d-flex align-items-center justify-content-center mb-4">
-        <div class="mx-2 bg-light w-100 border rounded p-2">
-          pet details
-        </div>
-      </div>
+      <% end %>
+
     </div>
   </div>
 </div>

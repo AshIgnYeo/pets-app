@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   devise_for :users
 
+  get "/pets/fetch", to: "pets#fetch"
   resources :users, only: [] do
     resources :pets, only: [:new, :create, :edit, :update]
   end

@@ -29,3 +29,5 @@ document.addEventListener("turbolinks:load", () => {
   const navOffset = document.querySelector(".navbar").offsetHeight;
   document.body.style.marginTop = `${navOffset}px`;
 });
+
+import "controllers"

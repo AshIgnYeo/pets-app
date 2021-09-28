@@ -8,18 +8,24 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
-    @user = User.find(params[:user_id])
+    @user = current_user || User.find(params[:user_id])
 
-    if @pet.save
+    @pet.user = @user
+
+    if @pet.save!
       redirect_to account_path
     else
       render :new
     end
   end
 
+  def fetch
+    render :json => Pet.all
+  end
+
   private
 
   def pet_params
-    params.require(:pet).permit([:name, :type])
+    params.require(:pet).permit([:name, :pet_type, :image, :breed])
   end
 end
