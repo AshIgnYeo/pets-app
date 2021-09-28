@@ -31,12 +31,14 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-6" data-controller="pets">
-      <h3><%= current_user.email %>'s Pets</h3>
-      <ul data-action="click->pets#update">
-        <% current_user.pets.of_type("cat").each do |pet| %>
-          <li><%= pet.name %></li>
-        <% end %>
-      </ul>
+      <h3><%= user_signed_in? ? "#{current_user.email}'s Pets" : "Pet App" %></h3>
+      <% if user_signed_in? %>
+        <ul data-action="click->pets#update">
+          <% current_user.pets.of_type("cat").each do |pet| %>
+            <li><%= pet.name %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>
